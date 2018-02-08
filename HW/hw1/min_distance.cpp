@@ -25,7 +25,7 @@ int main() {
    int num2;
    
    cout << "Enter an input file name: " << endl;
-   getline(cin, fileName);
+  cin >> fileName;
 
     size=read_file(fileName, 0);
     
@@ -86,14 +86,14 @@ int main() {
 
 int read_file(string file, int i)								//input from .txt file
 {	ifstream in_file;
-	in_file.open(file);
+	in_file.open(file.c_str());
 	int n;
 	int num;
 
 	if (in_file.fail())				//error statements
 	{
 		cout << "Error: input file open failed.\n";
-		exit(1);
+		return 0;
 	}
 
 	
