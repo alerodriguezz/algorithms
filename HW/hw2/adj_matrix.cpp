@@ -31,37 +31,41 @@ int main(){
   edges=read_file(fileName,1);
   
   cout<< "Number of vertices: " << vertices << endl;
-  cout<< "Number of edges: " << edges << endl;
+    cout<< "Number of edges: " << edges << endl;
   
   int iterator=2;
   
   //assigns values to 2d vector
-  for (int i=0; i< edges; i++)
-  {
-  	vector<int> temp;
-  	for (int j=0;j< 2; j++)
-  	{
-  		temp.push_back(read_file(fileName,iterator));
-  		iterator++;
+  for (int i=0; i< vertices; i++)
+  {vector<int> temp;
+  int value;
+   int x=read_file(fileName,iterator);
+   iterator++;
+   int y=read_file(fileName,iterator);
+   iterator++;
+  	for (int j=0;j< vertices; j++)
+  	{value=0;
+  	  if (i==x&&j==y)
+  	  {cout << "test";
+  	    value=1;
+  	  }
+  		temp.push_back(value);
+  		
   	}
   	coords.push_back(temp);
   }
-  //adjacency list initiated with all 0's 
-  vector<vector<int> > adjList(vertices, vector<int> (vertices,0) );
-  
-  for (int i=0; i< adjList.size();i++)
+  //test coords
+  cout << "test coords" << endl;
+  for (int i=0; i< coords.size();i++)
   {
-  	for (int j=0;j<adjList[i].size();j++)
+  	for (int j=0;j<coords[i].size();j++)
   	{	
-  		if (adjList[i][j]==coords[i][j])
-  		{
-  		    adjList[i][j]=1;
-  		}
-  		cout << adjList[i][j] <<" ";
+  		cout << coords[i][j] <<" ";
   	}
   	cout << endl;
   }
-
+  
+ 
 }
 
 int read_file(string file, int i)						//input from .txt file
